@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Zapota.DAO
 {
-    interface IProfileDAO
+    public interface IProfileDAO
     {
     }
 }

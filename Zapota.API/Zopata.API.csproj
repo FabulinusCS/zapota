@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Zapota.DAO\Zapota.DAO.csproj" />
     <ProjectReference Include="..\Zapota.Entities\Zapota.Entities.csproj" />
   </ItemGroup>
 

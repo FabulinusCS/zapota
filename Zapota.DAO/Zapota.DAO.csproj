@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Zapota.Common\Zapota.Common.csproj" />
+    <ProjectReference Include="..\Zapota.Entities\Zapota.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

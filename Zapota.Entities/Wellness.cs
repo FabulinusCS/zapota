@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Zapota.Common;
 
 namespace Zapota.Entities
 {
-    public class Wellness
+    public class Wellness : IEntity
     {
         public Wellness()
         {
