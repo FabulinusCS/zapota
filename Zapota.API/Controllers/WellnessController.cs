@@ -22,39 +22,42 @@ namespace Zapota.API.Controllers
         [HttpGet]
         public ActionResult<List<Wellness>> Get()
         {
-            return wellnessRepository.GetAll(); 
+            return Ok(wellnessRepository.GetAll()); 
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<Wellness> Get(Guid Id)
         {
-            return wellnessRepository.Get(Id);
+            return Ok(wellnessRepository.Get(Id));
         }
     
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] JObject value)
+        public ActionResult Post([FromBody] JObject value)
         {
             Wellness posted = value.ToObject<Wellness>();
             wellnessRepository.Save(posted);
+            return Created($"api/Wellness/{value}", value);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(Guid Id, [FromBody] JObject value)
+        public ActionResult Put(Guid Id, [FromBody] JObject value)
         {
             Wellness posted = value.ToObject<Wellness>();
             posted.Id = Id;// Ensure an id is attached
             wellnessRepository.Save(posted);
+            return Accepted(value);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(Guid Id)
+        public ActionResult Delete(Guid Id)
         {
             wellnessRepository.Delete(Id);
+            return NoContent();
         }
     }
 }

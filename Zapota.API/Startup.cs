@@ -5,7 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
-
+using Zapota.Common;
+using Zapota.DAO;
+using Zapota.Entities;
+using Zopata.API;
 
 namespace Zapota.API
 {
@@ -46,6 +49,10 @@ namespace Zapota.API
                     option.LoginPath = "/auth/login";
                 }                    
             );
+
+            services.AddSingleton<IWellnessRepository<Wellness>, WellnessRepository>();
+            services.AddSingleton<IMongoDataContext, MongoDataContext>();
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
