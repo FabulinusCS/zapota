@@ -30,7 +30,7 @@ namespace Zapota.DAO
 
         public List<Wellness> GetAll()
         {
-            var result = base.FindAllAsync(null);
+            var result = base.FindAllAsync(e=>e.Id != null);
             return result.Result.ToList();
         }
 

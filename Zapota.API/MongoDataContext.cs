@@ -16,6 +16,7 @@ namespace Zopata.API
 
         public MongoDataContext(string connectionName)
         {
+
             var url = "mongodb://zapota:zapotaml123@ds030817.mlab.com:30817/zapota";// settings.Value.MongoDB;
             var mongoUrl = new MongoUrl(url);
             IMongoClient client = new MongoClient(mongoUrl);
